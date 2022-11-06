@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using LeetCode75.InvertBinaryTree;
 
 namespace LeetCode75.LowestCommonAncestor;
@@ -38,6 +39,26 @@ public class LowestCommonAncestorSolution
         }
 
         return p;
+    }
+
+    /// <summary>
+    /// Better solution
+    /// </summary>
+    /// <param name="root"></param>
+    /// <param name="p"></param>
+    /// <param name="q"></param>
+    /// <returns></returns>
+    public TreeNode LowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q)
+    {
+        if (root == null) {
+            return null;
+        } else if (p.val < root.val && q.val < root.val) { // if current root value is greater than both p and q value that means root is in left of current root
+            return LowestCommonAncestor2(root.left, p, q); 
+        } else if (p.val > root.val && q.val > root.val) { // if current root value is lesser than both p and q value that means root is in right of current root
+            return LowestCommonAncestor2(root.right, p, q);
+        } else {
+            return root; // if root value is between both left and right of the root then we got the least common ancestor
+        }
     }
     
     public int GetNodeDepth(TreeNode node, TreeNode p)
@@ -161,8 +182,15 @@ public class LowestCommonAncestorSolution
         
         Console.WriteLine(nodeRoot.val);
 
+        var stopWatch = new Stopwatch();
+        stopWatch.Start();
         var lowest = LowestCommonAncestor(node, new TreeNode(2), new TreeNode(8));
         
-        Console.WriteLine("Ancestor: " + lowest.val);
+        Console.WriteLine($"Ancestor1: {lowest.val}, Elapsed time: {stopWatch.Elapsed}");
+        
+        stopWatch.Restart();
+        var lowest2 = LowestCommonAncestor2(node, new TreeNode(2), new TreeNode(8));
+        
+        Console.WriteLine($"Ancestor2: {lowest2.val}, Elapsed time: {stopWatch.Elapsed}");
     }
 }
