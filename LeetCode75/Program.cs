@@ -1,4 +1,5 @@
-﻿using LeetCode75.ValidPalindrome;
+﻿using LeetCode75.LowestCommonAncestor;
+using LeetCode75.ValidPalindrome;
 
 namespace LeetCode75
 {
@@ -6,7 +7,11 @@ namespace LeetCode75
     {
         static void Main(string[] args)
         {
-            InvertBinaryTree.InvertBinaryTreeSolution.Run();
+            //InvertBinaryTree.InvertBinaryTreeSolution.Run();
+
+            var lowerAncestor = new LowestCommonAncestorSolution();
+            
+            lowerAncestor.Run();
         }
     }
 }
