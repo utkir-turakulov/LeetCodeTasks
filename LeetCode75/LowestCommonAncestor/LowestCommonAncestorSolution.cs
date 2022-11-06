@@ -42,7 +42,7 @@ public class LowestCommonAncestorSolution
     }
 
     /// <summary>
-    /// Better solution
+    /// Better solution (Memory O(n)  Complexity O(1))
     /// </summary>
     /// <param name="root"></param>
     /// <param name="p"></param>
