@@ -1,6 +1,9 @@
 #### Список задач тут
 https://www.techinterviewhandbook.org/grind75?weeks=8
 
+#### 75 задач
+https://www.techinterviewhandbook.org/grind75
+
 Тут по темам задачи
 https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
 
